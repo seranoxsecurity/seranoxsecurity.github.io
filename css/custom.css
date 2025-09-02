@@ -1,0 +1,4 @@
+/* Hide the "Posts" heading when viewing the blog list */
+.page-title {
+    display: none !important;
+}

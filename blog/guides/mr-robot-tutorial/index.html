@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Mr. Robot CTF Tutorial :: Seranox</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" Welcome back! today we will be taking a look at the well known capture the flag challenge based off the hit TV show Mr.Robot hosted on TryHackMe where we will attempt to hack into Mr. Robots webpage and find the flags required to complete the task.
+Once connected to my TryHackMe VPN I will start the machine and connect to the IP address that is revealed on the challenge page.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://seranoxsecurity.github.io/blog/guides/mr-robot-tutorial/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/custom.min.41eddeb2d1ef18782c8d8760f404e57df7c181258108724daecf1ff3e7cc61cf.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/main.min.775ac2af004d44c22a6d000fbd1d9af529642f5cef27399d0280d180af2c2e9b.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/menu.min.310d32205bdedd6f43144e3c3273c9deecd238eba5f9108db5ea96ca0cfbe377.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/post.min.ad50c7f4d00e7975918f37fc74c6029e1959a40d66fb5b2c6564a8715e985573.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/syntax.min.e9ab635cf918bc84b901eb65c0b2caa74c9544245e3647c1af5c129896ef276e.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/terminal.min.ad01f0f48e1d99b2a4fd4257dd16659a94593dec3851e349b4b556559982f48c.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="https://seranoxsecurity.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://seranoxsecurity.github.io/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Mr. Robot CTF Tutorial">
+<meta property="og:description" content=" Welcome back! today we will be taking a look at the well known capture the flag challenge based off the hit TV show Mr.Robot hosted on TryHackMe where we will attempt to hack into Mr. Robots webpage and find the flags required to complete the task.
+Once connected to my TryHackMe VPN I will start the machine and connect to the IP address that is revealed on the challenge page.
+" />
+<meta property="og:url" content="https://seranoxsecurity.github.io/blog/guides/mr-robot-tutorial/" />
+<meta property="og:site_name" content="Seranox" />
+
+  <meta property="og:image" content="https://seranoxsecurity.github.io/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-09-02 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Seranox
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/whoami/">Whoami</a></li>
+        
+      
+        
+          <li><a href="/blog/">Blog</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/whoami/" >Whoami</a></li>
+        
+      
+        
+          <li><a href="/blog/" >Blog</a></li>
+        
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://seranoxsecurity.github.io/blog/guides/mr-robot-tutorial/">Mr. Robot CTF Tutorial</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-09-02</time></div>
+
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p><img src="Feature.png" alt="Feature.png">
+Welcome back! today we will be taking a look at the well known capture the flag challenge based off the hit TV show Mr.Robot hosted on TryHackMe where we will attempt to hack into Mr. Robots webpage and find the flags required to complete the task.</p>
+<p><img src="01.png" alt="01.png"></p>
+<p>Once connected to my TryHackMe VPN I will start the machine and connect to the IP address that is revealed on the challenge page.</p>
+<p><img src="02.png" alt="02.png"></p>
+<p>I am presented with a very interesting splash screen containing links to different pages feature theme elements of the show. To begin investigating the landscape i decide to check the hint designated for the first flag. This hint is called <strong>&ldquo;Robots&rdquo;</strong> which could indicate that there is a robots.txt page that could contain information to take us to the next step. There are a couple of ways to do this either by using an automation tool detect directories or manual entry,  but for now we will manually add the extension to the URL to see if it will direct us to a <strong>robots.txt</strong> page.</p>
+<p><img src="03.png" alt="03.png"></p>
+<p>Now we are getting somewhere! By adding robots.txt we are brought to a hidden directory containing other url extensions. One of those extentions includes one that says <strong>&ldquo;key-1-of-3.txt&rdquo;</strong> which we can presume is where are first key will be. So like we did with robots.txt, let&rsquo;s try add that extension to the end of our URL to bring us to the directory we need.</p>
+<p><img src="04.png" alt="04.png"></p>
+<p>Bingo, we have found our first flag!</p>
+<p><img src="05.png" alt="05.png"></p>
+<p>After inputting our first flag, let&rsquo;s take a look at flag number 2&rsquo;s hint. This hint says: <strong>&ldquo;There&rsquo;s something fishy about this wordlist&hellip; Why is it so long?&rdquo;</strong>  going by this hint, it seems to be referring to some sort of wordlist or dictionary of some kind. What we noticed in our robots.txt directory was another directory titled <strong>&ldquo;fsocity.dic&rdquo;</strong> let&rsquo;s go back and try adding that to our URL now and see where it takes us.</p>
+<p><img src="06.png" alt="06.png"></p>
+<p>We have bee prompted with a request to download a dictionary file. Go ahead and save the file to your Downloads folder.  Usually when we are given a dictionary file in a Capture The Flag, this can signify that our next challenge will require some some sort of brute-forcing, usually a login portal of some kind.</p>
+<p><img src="07.png" alt="07.png"></p>
+<p>To see if there is a login portal we can work with, I used GoBuster to enumerate directories on the website. The results produced what looks to be  a wordpress login page.  Let&rsquo;s try navigate to it.</p>
+<p><img src="08.png" alt="08.png"></p>
+<p>We can see that we are faced with a standard login page. To begin brute forcing login credentials, we will need to intercept and manipulate an input request. By doing this, we will open up BurpSuite and use a browser plugin called <strong>FoxyProxy</strong>, which is a common extension used to intercept burp requests. So let&rsquo;s go ahead and attempt to use fake login credentials to create a captured request.</p>
+<p><img src="09.png" alt="09.png"></p>
+<p>Remember the dictionary list we downloaded? we are going to use that list to perform a brute-force attack using Hydra. Notice when we entered the fake user name and password we got an error response stating <strong>ERROR: Invalid username?</strong> this is in itself a vulnerability as it can be used to enumerate usernames. This gives us a hint as to what information to focus on first which will be the password.</p>
+<p><img src="10.png" alt="10.png"></p>
+<p>So to take advantage of that error we are going to first assign <strong>(-L)</strong> our dictionary list and then assign a static username <strong>(-p)</strong> and then we will type the name we want to use. In this case, we are going to go with the username <strong>test</strong>. Next we assign our target IP <strong>(10.10.196.204)</strong>, our post request from Burp <strong>(http-post-form)</strong> and the login page itself that we will be working on <strong>(/wp-login.php)</strong></p>
+<p>Next to add to the string will be the parameters <strong>(log=^USER^&amp;pwd=^PWD^)</strong> which will be where our dictionary will making inputs, then we will add the error we received that we know is vulnerable, being <strong>Invalid Username.</strong> We add this so we can tell hydra top avoid those errors and focus only on the prompts that succeed. Lastly, we will assign our thread count and then execute the command.</p>
+<p><img src="11.png" alt="11.png"></p>
+<p>Bingo, we have a username. Now lets try manually inputting that username with more random password attempts and see if the response will give us any more juicy hints.</p>
+<p><img src="12.png" alt="12.png"></p>
+<p>When typing in Elliot and a random password, we can see that we get ANOTHER vulnerable error message telling us that the password we used for that username is incorrect, indicating to us that the <strong>username is correct</strong> - This is half the battle, now it is time to enumerate the password and try crack this thing.</p>
+<p><img src="13.png" alt="13.png"></p>
+<p>We are going to run the hydra command again only this time we are going to assign a static username (-l) and (-P) for to focus on enumerating the password now. The capitalization of the commands signify the priority of which part of the target you are seeking to enumerate. The last part that we will change will be the error command we got back regarding the password (<strong>The password you entered for the username</strong>) - This may take quite some time and if you are not using premium, it could take days depending on the wordlist, so to speed things up just for this demonstration I can tell you that the password was Elliots work badge number from the tv show, which is: <strong>ER28-0652</strong></p>
+<p><img src="14.png" alt="14.png"></p>
+<p>After typing the credentials into the Wordpress Admin login page we can see we now access to Elliots Admin Panel. This is a critical threat as this means that we have access to the website itself and it&rsquo;s functions through the editor tab. This can be manipulated for uploading the likes of a reverse shell to gain access to the web  server it is hosted on. Lets investigate it.</p>
+<p><img src="15.png" alt="15.png"></p>
+<p>What we will do is first set up and start a net cat listener on port 53 for  when we implement a reverse shell into the wordpress editor. That way once the reverse shell we set up is triggered by navigating to the website it is on, the listener should be able to detect the reverse shell connection and relay the host information to us giving us access. To set up our listener properly we will type <strong>rlwrap</strong>. This will give us the ability to use tab completion. Then we will input <strong>NC</strong> for net cat, and finally <strong>-lvnp</strong> which stands for Listen, Verbose, reverse-Name look-u<strong>P</strong> and then designate the port to listen on that will be included in the reverse shell specifications. Port 53 is the DNS port and is rarely blocked on most firewalls so it will be a good avenue to use for this exercise regarding a web server.</p>
+<p><em>(Note: if you do not have rlwrap installed by default in your kali or parrot box, you can download it by typing <strong>sudo apt install rlwrap</strong> into your terminal )</em></p>
+<p><img src="16.png" alt="16.png"></p>
+<p>While our netcat listener is listening, we will now go on the hunt for the perfect reverse shell template that to use for this task. By doing so we are going to open a new tab and begin typing queries such as <strong>php reverse-shell</strong> and see what comes up. In our search, we have come across a php reverse-shell that was uploaded to github. Click on the reverse-shell.php file and render as RAW text. Once done, we can then copy/paste the shell back into our wordpress editor.</p>
+<p><img src="17.png" alt="17.png"></p>
+<p>We can implement this shell on pretty much any page, but not every page will act or render the same. To prevent any unnecessary front-facing damage that could blow our cover, we will upload this shell to more passive page, such as in archives or a 404 error page. For this test we will choose the archives page, as even though the 404 page is a less common page seen on a website, it is still seen more than it would be the archives page.</p>
+<p><img src="18.png" alt="18.png"></p>
+<p>Once the shell template has been pasted in to the archives editor, we are going to need to change two things: our <strong>host IP</strong> and the <strong>port</strong> that our net cat listener is listening on which will be 53. Once updated we can then press update file.</p>
+<p><img src="19.png" alt="19.png"></p>
+<p>To execute the reverse shell that we have just uploaded to the editor we are going to want to open a new tab and navigate to that archives URL The URL for this is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>[<span style="color:#a6e22e">http</span><span style="color:#f92672">:</span><span style="color:#75715e">//10.10.13.23/wp-content/themes/twentyfifteen/archive.php](http://10.10.13.23/wp-content/themes/twentyfifteen/archive.php)
+</span></span></span></code></pre></div><p>As we can see doing this triggered the shell script and gave us direct access to the host. To very we have user access to the host we can type <strong>whoami</strong> to see the current user is daemon and <strong>hostname</strong> to verify the host name is linux.</p>
+<p><img src="20.png" alt="20.png"></p>
+<p>Fist thing we should always try when getting user access to a host is to fully investigate the user account we are on including their home directories and folders. Doing so in this case, we can see that when changing directory into /home we can see one user in there called Robot. When we then cd into that robot directory we come across two files. One is a txt file saying <strong>key-2-of-3.txt</strong> to view the contents of this we can type: &ldquo;cat key-2-of-3.txt&rdquo;</p>
+<p><img src="21.png" alt="21.png"></p>
+<p>Uh oh, it seems we have ran in to a problem. When trying to cat out the txt file, we are faced with a permissions denied prompt. This means we do not have the user privileges to read or write to the text file at all.   So by using the command <strong>ls -lsa</strong> we can list out the file permissions for each user. We can see that the txt file has the read <strong>(r)</strong> permissions removed (<strong>-)</strong> from it for the robot user and other groups from accessing it (being us as daemon), however.. we ARE able to read the file labelled <strong>password.raw-md5</strong> which could  lead us to clues on how to access that txt file. So let&rsquo;s cat out that file..</p>
+<p><img src="22.png" alt="22.png"></p>
+<p>Let&rsquo;s go! it appears we have a md5 encrypted backup of the user &lsquo;robot&rsquo;s password. This sucks for them but great for us as it means we can now save it to our notepad and name it <strong>md5.hash</strong> to then be used to crack later.</p>
+<p><img src="23.png" alt="23.png"></p>
+<p>To crack the MD5 file type we are going to use a well known tool called <strong>John The Ripper</strong>. John is a CPU powered cypher and password cracking kit. We will also be using the dictionary wordlist from earlier in this exercise against the hash also.</p>
+<p><em>{Note: If you are not told the hash type, you can use a tool installed already called hash-identifer. This will analyze the hash string you put in and will give you back the type for john.}</em></p>
+<p><img src="24.png" alt="24.png"></p>
+<p>In just a few seconds we were successfully able to identify the hash to be password: <strong>abcdefghijklmnopqrstuvwxyz</strong>, as we all know is not a very secure choice for a passphrase!</p>
+<p><img src="25.png" alt="25.png"></p>
+<p>Before we pivot to another user account, we will first make our shell a bit more interactive than it is. Similar to step 15, this is an little addition that will make our shell feel more native like command history, tab completion etc. The command to update while in the reverse shell is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">python</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">c</span> <span style="color:#e6db74">&#39;import pty;pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</span></span></code></pre></div><p><img src="26.png" alt="26.png"></p>
+<p>Now that we have an interactive shell we can type <strong>su robot</strong> to attempt to login as the robot user. A prompt will pop up saying enter password. This will be the password we decrypted from the md5 hash earlier.</p>
+<p><img src="27.png" alt="27.png"></p>
+<p>Now that we have access o the user Robot we can now change directory into /home and cat out the txt file with our new permissions.</p>
+<p><img src="28.png" alt="28.png"></p>
+<p>For the final step, we are required to escalate permissions to root user which will give us access to the entire host system. To do this, we can run privilege escalation scripts or look for <strong>SUID binaries</strong> to aid bypassing procedures. SUID binaries have the ability to set you as a root user while running. Lets try find any SUID binaries that are running in an unusual way. To do this, we can run this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">find</span> <span style="color:#f92672">/</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">perm</span> <span style="color:#f92672">+</span><span style="color:#ae81ff">6000</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span><span style="color:#960050;background-color:#1e0010">/dev/null | grep &#39;/bin/&#39;</span>
+</span></span></code></pre></div><p><img src="29.png" alt="29.png"></p>
+<p>Once we run the find command we are given a list of binaries and one ino partocualr stands out that -  the nmap one. To verify that we can use this to break out of the binary and become root, we can use a website called <a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a>
+On there we can search for nmap and it will give us an interactive mode script as well as a !sh to execute it.</p>
+<p><img src="30.png" alt="30.png"></p>
+<p>Once we execute the above commands and type whoami, we can now confirm that we have root privileges on the host.</p>
+<p><img src="31.png" alt="31.png"></p>
+<p>Now that we are root we can change directory into root and list our options. Here we can see our third flag <strong>key-3-of-3.txt</strong> which we can cat out for are final flag.
+I hope you all enjoyed this CTF tutorial and hopefully learned a thing or two. Join me again for future tutorials.</p>
+<ul>
+<li>Seranox.</li>
+</ul>
+
+      </div></div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

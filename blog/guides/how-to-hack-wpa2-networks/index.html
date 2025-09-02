@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>How to Hack WPA2 Networks :: Seranox</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+Today I am going to show how you can intercept, capture and crack WPA2 passwords from a wifi network. To do this, you will first need to obtain a wireless card that can be put in to monitor mode. There are many brands of wireless cards available, but for this tutorial I will be using an ALPHA Atheros AR9271. Disclaimer : This is just meant to be informative (and, of course, entertaining). Under no circumstances should you use the hacks you learn here on persons, organizations, or your probable obnoxious neighbor, even if they are influenced by foolish friends.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://seranoxsecurity.github.io/blog/guides/how-to-hack-wpa2-networks/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/custom.min.41eddeb2d1ef18782c8d8760f404e57df7c181258108724daecf1ff3e7cc61cf.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/main.min.775ac2af004d44c22a6d000fbd1d9af529642f5cef27399d0280d180af2c2e9b.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/menu.min.310d32205bdedd6f43144e3c3273c9deecd238eba5f9108db5ea96ca0cfbe377.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/post.min.ad50c7f4d00e7975918f37fc74c6029e1959a40d66fb5b2c6564a8715e985573.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/syntax.min.e9ab635cf918bc84b901eb65c0b2caa74c9544245e3647c1af5c129896ef276e.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/terminal.min.ad01f0f48e1d99b2a4fd4257dd16659a94593dec3851e349b4b556559982f48c.css">
+
+  
+  <link rel="stylesheet" href="https://seranoxsecurity.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="https://seranoxsecurity.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://seranoxsecurity.github.io/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Hack WPA2 Networks">
+<meta property="og:description" content="
+Today I am going to show how you can intercept, capture and crack WPA2 passwords from a wifi network. To do this, you will first need to obtain a wireless card that can be put in to monitor mode. There are many brands of wireless cards available, but for this tutorial I will be using an ALPHA Atheros AR9271. Disclaimer : This is just meant to be informative (and, of course, entertaining). Under no circumstances should you use the hacks you learn here on persons, organizations, or your probable obnoxious neighbor, even if they are influenced by foolish friends.
+" />
+<meta property="og:url" content="https://seranoxsecurity.github.io/blog/guides/how-to-hack-wpa2-networks/" />
+<meta property="og:site_name" content="Seranox" />
+
+  <meta property="og:image" content="https://seranoxsecurity.github.io/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-09-02 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Seranox
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/whoami/">Whoami</a></li>
+        
+      
+        
+          <li><a href="/blog/">Blog</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/whoami/" >Whoami</a></li>
+        
+      
+        
+          <li><a href="/blog/" >Blog</a></li>
+        
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://seranoxsecurity.github.io/blog/guides/how-to-hack-wpa2-networks/">How to Hack WPA2 Networks</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-09-02</time></div>
+
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p><img src="Feature.png" alt="Feature.png"></p>
+<p>Today I am going to show how you can intercept, capture and crack WPA2 passwords from a wifi network. To do this, you will first need to obtain a wireless card that can be put in to monitor mode. There are many brands of wireless cards available, but for this tutorial I will be using an ALPHA Atheros AR9271.   </p>
+<p><em><strong>Disclaimer :</strong> This is just meant to be informative (and, of course, entertaining). Under no circumstances should you use the hacks you learn here on persons, organizations, or your probable obnoxious neighbor, even if they are influenced by foolish friends.</em></p>
+<p><img src="01.png" alt="01.png"></p>
+<p>Once your wireless card is connected to a linux box and drivers are up to date, we want to list out our wireless devices to make sure our computer can see it. For this, we will type <code>lsusb</code></p>
+<p><img src="02.png" alt="02.png"></p>
+<p>As you can see, BUS 01 is showing that our ALPHA card is connected. Next we need to verify that our wifi card is in monitor mode. We will type <code>iwconfig</code> to list our card again and display its status. We can see that <code>wlx00c0ca96d2e2</code> is the name of our card and it is in monitor mode, ready to sniff out wireless signals. If for the chance that your card <em>is not</em> in monitor mode and instead says managed, you can run a command to change it by typing:</p>
+<p><code>airmon-ng wlx00c0ca96d2e2</code></p>
+<p><img src="03.png" alt="03.png"></p>
+<p>Now we will take a look at airodump-ng. Airodump-ng is a packet capture utility that captures and saves raw data packets for further analysis. After enabling monitor mode using airmon-ng, you can start capturing packets using airodump. Running the command <code>airodump-ng wlx00c0ca96d2e2</code> will list the available access points scanning from our card. The ESSID (or SSID) is the name of the wireless network. [Make sure to be in root when running this process]</p>
+<p><img src="04.png" alt="04.png"></p>
+<p>Once the command is executed, you will see a list form of all the wireless access points (WAPS) that our card is detecting within our range. Press <code>Ctrl+c</code> to stop scanning when you feel ready. We have detected SERANOX_WIFI, which is the WiFi hotspot that we will be attempting to hack for this demonstration. I am going to highlight and copy the findings into a notepad to analyse further.</p>
+<p><img src="05.png" alt="05.png"></p>
+<p>Once we have the information of the access point, we can then begin the process of targeting that network to de-authenticate a device connected to it. To do this I am going to run: <code>airodump-ng -c1 -w captured-packet -d 72:8F:3D:65:C1:A3 wlx00c0ca96d2e2</code></p>
+<p><img src="06.png" alt="06.png"></p>
+<p>Yes! we have obtained a station. A station is a device that is connect to the network we are testing. This device happens to be my firestick connected to my TV and so we will need to perform a de-authentication attack to get the full handshake with the target.</p>
+<p><img src="07.png" alt="07.png"></p>
+<p>How we will do this is by opening up another tab in our terminal and using the aireplay-ng tool to de-authenticate (kick) the firestick off the network. We will attempt to de-authenticate unlimited times ( &ndash;deauth 0) , assign our access point (-a 72:8F:3D:65:C1:A3 ), assign or client, the firestick (-c 80:6D:71:31:59:C9 ) and lastly inputting our wireless card to do it (wlx00c0ca96d2e2)</p>
+<p><img src="08.png" alt="08.png"></p>
+<p>We can now see our card is trying to de-authenticate the Firestick. How we can check this is by taking a look at our Firesticks connection. If the requests are succeeding, then the device should have successfully been kicked from the network.</p>
+<p><img src="09.png" alt="09.png"></p>
+<p>Success! we have now been able to intercept the connection between the firestick and the SERANOX_WIFI network. If we navigate back to the previous terminal window we will have a handshake that has been captured between the device and network.</p>
+<p><img src="10.png" alt="10.png"></p>
+<p>If we list out the current directory that we are in, we can se some captured files that have been saved. The files we want to look at are the <code>.cap</code> files. These contain the information we will need to perform a dictionary attack and obtain the WIFI password using aircrack-ng.</p>
+<p><img src="11.png" alt="11.png"></p>
+<p>To initiate a brute-force dictionary attack we are going to need a wordlist. Wordlists come in many sizes from megabytes to petabytes! use whatever wordlist you may find suited for the particular thing you are trying to crack and navigate to it. The wordlist I will be using is the &ldquo;RockYou.txt&rdquo; wordlist that comes with all Kali Linux and Parrot OS distributions.</p>
+<p><img src="12.png" alt="12.png"></p>
+<p>Now that we have our wordlist of choice, we are going go ahead type the command below to begin the dictionary attack on the <code>.cap</code> of our choice using aircrack-ng.
+<code>aircrack-ng captured-packet-05.cap -w /usr/share/wordlists/rockyou.txt</code></p>
+<p><img src="13.png" alt="13.png"></p>
+<p>Success! We just hacked the password to SERANOX_WIFI. Now we will save the password to a notepad along with the SSID and confirm the connection.</p>
+<p><img src="14.png" alt="14.png"></p>
+<p>Next we will attempt to log into the network using the cracked password.</p>
+<p><img src="15.png" alt="15.png"></p>
+<p>We have now successfully hacked the WPA2 Wireless Network!</p>
+
+      </div></div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Seranox</title>
+    <link>https://seranoxsecurity.github.io/</link>
+    <description>Recent content in Home on Seranox</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://seranoxsecurity.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Hack WPA2 Networks</title>
+      <link>https://seranoxsecurity.github.io/blog/guides/how-to-hack-wpa2-networks/</link>
+      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://seranoxsecurity.github.io/blog/guides/how-to-hack-wpa2-networks/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;Feature.png&#34; alt=&#34;Feature.png&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Today I am going to show how you can intercept, capture and crack WPA2 passwords from a wifi network. To do this, you will first need to obtain a wireless card that can be put in to monitor mode. There are many brands of wireless cards available, but for this tutorial I will be using an ALPHA Atheros AR9271.   &lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;strong&gt;Disclaimer :&lt;/strong&gt; This is just meant to be informative (and, of course, entertaining). Under no circumstances should you use the hacks you learn here on persons, organizations, or your probable obnoxious neighbor, even if they are influenced by foolish friends.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mr. Robot CTF Tutorial</title>
+      <link>https://seranoxsecurity.github.io/blog/guides/mr-robot-tutorial/</link>
+      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://seranoxsecurity.github.io/blog/guides/mr-robot-tutorial/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;Feature.png&#34; alt=&#34;Feature.png&#34;&gt;&#xA;Welcome back! today we will be taking a look at the well known capture the flag challenge based off the hit TV show Mr.Robot hosted on TryHackMe where we will attempt to hack into Mr. Robots webpage and find the flags required to complete the task.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;01.png&#34; alt=&#34;01.png&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Once connected to my TryHackMe VPN I will start the machine and connect to the IP address that is revealed on the challenge page.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://seranoxsecurity.github.io/whoami/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://seranoxsecurity.github.io/whoami/</guid>
+      <description>&lt;div style=&#34;text-align:center;&#34;&gt;&#xA;  &lt;img src=&#34;https://seranoxsecurity.github.io/images/me.png&#34; alt=&#34;Seranox&#34; style=&#34;max-width:200px; border-radius:50%; box-shadow:0 0 8px rgba(0,255,0,0.4); margin:20px auto; display:block;&#34;&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Hi, I’m &lt;strong&gt;Seranox&lt;/strong&gt; and I am a security researcher who specializes in security operative and penetration testing services to clients ranging from local businesses to Fortune 500 enterprises. I stay on top of the latest trends, tools and exploits by hunting for vulnerabilities in high-stakes bug bounty programs, competing in global CTF competitions and developing my own pen-testing tools. I also moderate, co-ordinate and speak in various security spaces in both Ireland and internationally.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
